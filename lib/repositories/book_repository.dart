@@ -25,8 +25,10 @@ class BookRepository {
     ),
   ];
 
+  /// Retourne tous les livres
   List<Book> getAll() => _books;
 
+  /// Retourne un livre par son ID, ou null si non trouvé
   Book? getById(String id) {
     try {
       return _books.firstWhere((b) => b.id == id);
@@ -35,6 +37,17 @@ class BookRepository {
     }
   }
 
-  List<Book> search(String query) =>
-      _books.where((b) => b.title.toLowerCase().contains(query.toLowerCase())).toList();
+  /// Nouvelle méthode pour ajouter un livre
+  void addBook(Book book) {
+    _books.add(book);
+  }
+
+  /// Recherche améliorée : par titre ou auteur
+  List<Book> search(String query) {
+    final lowerQuery = query.toLowerCase();
+    return _books.where((b) =>
+      b.title.toLowerCase().contains(lowerQuery) ||
+      b.author.toLowerCase().contains(lowerQuery)
+    ).toList();
+  }
 }

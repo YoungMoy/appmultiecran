@@ -59,6 +59,12 @@ lib/
     ├── book_card.dart          # Widget réutilisable pour afficher un livre
     ├── custom_button.dart      # Widget réutilisable pour les boutons
     └── theme_switcher.dart     # Widget réutilisable pour le thème
+test/
+│   ├── book_repository_test.dart
+│   ├── book_card_test.dart
+│   ├── add_book_screen_test.dart
+│   ├── navigation_test.dart
+│   └── book_detail_screen_test.dart    
 
 # Fichiers et dossiers à la racine du projet
 README.md                      # Documentation du projet (description, instructions, captures)

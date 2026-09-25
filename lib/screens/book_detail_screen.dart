@@ -20,22 +20,15 @@ class BookDetailScreen extends StatelessWidget {
       appBar: AppBar(title: Text(book.title)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Stack(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Positioned.fill(
-              child: Opacity(
-                opacity: 0.1,
-                child: Icon(Icons.book, size: 200),
-              ),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Auteur : ${book.author}', style: const TextStyle(fontSize: 18)),
-                Text('Année : ${book.year}'),
-                const SizedBox(height: 16),
-                Text(book.description),
-              ],
+            Text('Auteur : ${book.author}', style: const TextStyle(fontSize: 18)),
+            Text('Année : ${book.year}'),
+            const SizedBox(height: 16),
+            Text(
+              book.description,
+              style: const TextStyle(fontSize: 16),
             ),
           ],
         ),

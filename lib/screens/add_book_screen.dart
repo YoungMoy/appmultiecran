@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:appmultiecran/widgets/custom_button.dart';
+import 'package:appmultiecran/repositories/book_repository.dart';
+import 'package:appmultiecran/models/book.dart';
 
 class AddBookScreen extends StatefulWidget {
   const AddBookScreen({super.key});
@@ -65,6 +67,19 @@ class _AddBookScreenState extends State<AddBookScreen> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
+
+                    // Création du nouvel objet Book
+                    final newBook = Book(
+                      id: DateTime.now().millisecondsSinceEpoch.toString(),
+                      title: title,
+                      author: author,
+                      year: int.parse(year),
+                      description: description,
+                    );
+
+                    // Ajout dans le dépôt
+                    BookRepository().addBook(newBook);
+
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
@@ -72,6 +87,8 @@ class _AddBookScreenState extends State<AddBookScreen> {
                         ),
                       ),
                     );
+
+                    Navigator.pop(context); // Retour à la liste
                   }
                 },
               ),

@@ -75,11 +75,17 @@ android/                       # Code spécifique Android (auto-généré par Fl
 ios/                           # Code spécifique iOS (auto-généré par Flutter)
 web/                           # Support Web (si activé)
 
+# Prérequis
+- Flutter SDK (≥ 3.0)
+- Android Studio ou VS Code avec extensions Flutter/Dart
+- Un émulateur Android ou un appareil physique connecté
 
 # installation et lancement
-1- Cloner le projet :
-git clone https://github.com/<ton-compte>/<nom-du-repo>.git
-cd <nom-du-repo>
+
+1. Cloner le projet :
+   ```bash
+   git clone https://github.com/YoungMoy/appmultiecran.git
+   cd appmultiecran
 
 2- Installer les dependances :
 flutter pub get
@@ -88,17 +94,19 @@ flutter pub get
 flutter run
 
 # Captures d’écran
-Home (mobile + tablette)
 
-Liste des livres avec recherche (ListView + GridView)
+# Écran d’accueil
+![Home Screen](captures/home.png)
 
-Détail d’un livre
+# Liste des livres
+![Book List](captures/book_list.png)
 
-Formulaire d’ajout avec validation (CustomButton)
+# Formulaire d’ajout
+![Add Book Screen](captures/add_book.png)
 
-Paramètres (ThemeSwitcher clair/sombre)
+# Paramètres
+![Settings Screen](captures/settings.png)
 
-(ajoute ici tes captures d’écran dans un dossier captures/ et référence-les dans le README)
 
 # Tests réalisés
 ✅ Testé sur émulateur Android (Pixel 5, API 33).

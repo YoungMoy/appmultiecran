@@ -1,22 +1,24 @@
 # Projet Flutter — Bibliothèque
 Application Flutter multi-écrans avec navigation, réalisée dans le cadre du projet Flutter.
 
+# ![Flutter CI/CD](https://github.com/YoungMoy/appmultiecran/actions/workflows/flutter_ci.yml/badge.svg)
+
 # Objectif du projet
 Cette application permet de gérer une petite bibliothèque personnelle.
 Elle illustre les concepts fondamentaux de Flutter : navigation multi-écrans, gestion d’état simple, formulaires avec validation, widgets réutilisables, thèmes clair/sombre et responsive design (mobile/tablette).
 
 # Fonctionnalités
-4 écrans distincts :
+✅ 4 écrans distincts :
 
-Home : navigation principale (BottomNavigationBar sur mobile, NavigationRail sur tablette).
+✅ Home : navigation principale (BottomNavigationBar sur mobile, NavigationRail sur tablette).
 
-Liste des livres : affichage des livres avec recherche/filtrage.
+✅ Liste des livres : affichage des livres avec recherche/filtrage.
 
-Détail d’un livre : passage de paramètres pour afficher les infos d’un livre.
+✅ Détail d’un livre : passage de paramètres pour afficher les infos d’un livre.
 
-Formulaire d’ajout : ajout d’un livre avec validation (≥ 3 champs obligatoires).
+✅ Formulaire d’ajout : ajout d’un livre avec validation (≥ 3 champs obligatoires).
 
-Paramètres : bascule du thème clair/sombre avec widget réutilisable.
+✅ Paramètres : bascule du thème clair/sombre avec widget réutilisable.
 
 ✅ Navigation avec GoRouter (gestion centralisée des routes).
 
@@ -26,13 +28,18 @@ Paramètres : bascule du thème clair/sombre avec widget réutilisable.
 
 ✅ Formulaire avec validation (Titre, Auteur, Année, Description).
 
-✅ Gestion du thème clair/sombre avec un widget réutilisable ThemeSwitcher.
+✅ Gestion du  theme : clair/sombre avec un widget réutilisable ThemeSwitcher.
 
 ✅ Responsive design : BottomNavigationBar sur mobile, NavigationRail sur tablette, ListView sur mobile et GridView sur tablette.
 
 ✅ Widgets variés : ListView, GridView, Card, Stack, TextField, BottomNavigationBar, NavigationRail.
 
-✅ Widgets réutilisables : BookCard, CustomButton, ThemeSwitcher.
+✅  Widgets réutilisables
+
+- **BookCard** : affiche les informations d’un livre (titre, auteur, image).
+- **CustomButton** : bouton personnalisé réutilisable dans plusieurs écrans.
+- **ThemeSwitcher** : permet d’activer/désactiver le mode sombre.
+
 
 ✅ Séparation UI/données via BookRepository.
 
@@ -68,11 +75,17 @@ test/
 
 # Fichiers et dossiers à la racine du projet
 README.md                      # Documentation du projet (description, instructions, captures)
+
 pubspec.yaml                   # Dépendances et configuration du projet Flutter
+
 pubspec.lock                   # Versions figées des dépendances
+
 analysis_options.yaml           # Règles de linting et d'analyse du code (optionnel)
+
 android/                       # Code spécifique Android (auto-généré par Flutter)
+
 ios/                           # Code spécifique iOS (auto-généré par Flutter)
+
 web/                           # Support Web (si activé)
 
 # Prérequis
@@ -116,6 +129,22 @@ flutter run
 ✅ Navigation, recherche, formulaire et thème fonctionnent correctement.
 
 ✅ Responsive validé (NavigationRail sur tablette, GridView sur tablette).
+
+# Intégration Continue / Déploiement Continu (CI/CD)
+
+Ce projet utilise **GitHub Actions** pour automatiser les étapes suivantes :
+- Analyse du code (`flutter analyze`)
+- Exécution des tests unitaires avec couverture (`flutter test --coverage`)
+- Génération des builds (APK Android et Web)
+- Publication des artefacts (APK et build Web)
+
+Le pipeline est défini dans le fichier : .github/workflows/flutter_ci.yml
+
+Grâce à ce pipeline :
+- Chaque `git push` déclenche automatiquement les tests et la compilation.
+- Les erreurs sont détectées rapidement, améliorant la **fiabilité** du projet.
+- Les builds sont générés sans intervention manuelle, augmentant l’**efficacité**.
+
 
 # Auteur
 Projet réalisé dans le cadre du programme Flutter (Flutterfire Summer Camp).

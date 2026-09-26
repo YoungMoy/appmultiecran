@@ -1,0 +1,49 @@
+name: Flutter CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Récupération du code
+      - uses: actions/checkout@v3
+
+      # 2. Installer Flutter
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0' # adapte à ta version
+
+      # 3. Dépendances
+      - run: flutter pub get
+
+      # 4. Analyse statique
+      - run: flutter analyze
+
+      # 5. Tests unitaires avec couverture
+      - run: flutter test --coverage
+
+      # 6. Upload du rapport de couverture (Codecov)
+      - uses: codecov/codecov-action@v3
+        with:
+          file: coverage/lcov.info
+          fail_ci_if_error: true
+
+      # 7. Build APK (Android)
+      - run: flutter build apk --release
+
+      # 8. Build Web
+      - run: flutter build web --release
+
+      # 9. Publication conditionnelle (ex: GitHub Release)
+      - name: Upload APK
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk

@@ -1,4 +1,3 @@
-// lib/widgets/theme_switcher.dart
 import 'package:flutter/material.dart';
 
 class ThemeSwitcher extends StatelessWidget {

@@ -4,7 +4,14 @@ import 'package:appmultiecran/screens/add_book_screen.dart';
 
 void main() {
   testWidgets('AddBookScreen valide le formulaire', (WidgetTester tester) async {
-    await tester.pumpWidget(const MaterialApp(home: AddBookScreen()));
+    // Pump avec un thème qui évite InkSparkle
+    await tester.pumpWidget(MaterialApp(
+      theme: ThemeData(
+        useMaterial3: false, // désactive Material 3
+        splashFactory: InkRipple.splashFactory, // évite InkSparkle
+      ),
+      home: const AddBookScreen(),
+    ));
 
     // Remplir les champs
     await tester.enterText(find.byType(TextFormField).at(0), 'Titre Test');

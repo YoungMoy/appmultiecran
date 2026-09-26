@@ -35,4 +35,4 @@ class BookDetailScreen extends StatelessWidget {
       ),
     );
   }
-}
+} 

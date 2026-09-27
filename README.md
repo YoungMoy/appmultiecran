@@ -43,6 +43,37 @@ Elle illustre les concepts fondamentaux de Flutter : navigation multi-écrans, g
 
 ✅ Séparation UI/données via BookRepository.
 
+## Utilisation
+
+- **Accueil (Home)**  
+  - Point d’entrée principal de l’application.  
+  - Sur **mobile** : navigation via un **BottomNavigationBar**.  
+  - Sur **tablette** : navigation via un **NavigationRail**.  
+  - Permet de basculer rapidement entre les différents écrans (Liste, Ajout, Paramètres).  
+
+- **Liste des livres**  
+  - Affiche tous les livres disponibles dans la bibliothèque.  
+  - Inclut un champ de recherche (`TextField`) pour filtrer les résultats en temps réel.  
+  - Sur **mobile** : affichage en **ListView**.  
+  - Sur **tablette** : affichage en **GridView** pour une meilleure lisibilité.  
+
+- **Détail d’un livre**  
+  - Affiche les informations complètes d’un livre sélectionné : **titre, auteur, année, description**.  
+  - Utilise le passage de paramètres pour afficher dynamiquement les données du livre choisi.  
+  - Permet de consulter les détails sans quitter l’application.  
+
+- **Formulaire d’ajout**  
+  - Permet d’ajouter un nouveau livre à la bibliothèque.  
+  - Validation obligatoire sur au moins 3 champs : **Titre, Auteur, Année**.  
+  - Champ optionnel : **Description** pour enrichir les informations.  
+  - Utilise un bouton personnalisé (**CustomButton**) pour valider l’ajout.  
+  - Empêche l’enregistrement si les champs obligatoires ne sont pas remplis.  
+
+- **Paramètres**  
+  - Permet de basculer entre le **thème clair** et le **thème sombre**.  
+  - Utilise un widget réutilisable (**ThemeSwitcher**) pour gérer le changement de thème.  
+  - Le choix est appliqué à toute l’application et améliore l’expérience utilisateur.
+
 # Structure du projet
 
 lib/
